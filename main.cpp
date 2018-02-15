@@ -13,9 +13,18 @@ using std::endl;
 using std::istringstream;
 using std::getline;
 
-char get_del(const string & str){
+char find_del(const string & str){
+
+	if (str[0] == '/' && str[1] == '/'){
+		return str[2];
+	}
 
 	return ',';
+}
+
+char get_del(const string & str){
+
+	return find_del(str);
 }
 
 int sum(const string &muh_string){
@@ -24,7 +33,7 @@ int sum(const string &muh_string){
 	string token;
 	int temp = 0;
 	int sum = 0;
-	char del = ',';
+	char del;
 
 	// Format //[del]\n
 
@@ -80,7 +89,8 @@ TEST_CASE("sum function -- Newline testing"){
 
 TEST_CASE("sum function -- Deliminator testing"){
 
-	REQUIRE(sum("//;\n1") == 1);
+	REQUIRE(sum("//;\n1;") == 1);
+	REQUIRE(sum("//;\n1;2;") == 3);
 
 }
 
