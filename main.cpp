@@ -12,6 +12,7 @@ using std::cout;
 using std::endl;
 using std::istringstream;
 using std::getline;
+using std::runtime_error;
 
 char find_del(const string & str){
 
@@ -41,14 +42,18 @@ int sum(const string &muh_string){
 
 	while(std::getline(iss, token, del)){
 
-		try {
-			sum += stoi(token);
-		}
-		catch (...){
-			sum += 0;
-		}
-	}
+		// if (temp < 0)
+		// 	throw runtime_error("Negative numbers are not allowed!");
+		// else{
+			try {
 
+				sum += stoi(token);
+			}
+			catch (...){
+				sum += 0;
+			}
+		// }
+	}
 	return sum;
 }
 
@@ -59,7 +64,7 @@ TEST_CASE("sum function -- single integer"){
 	REQUIRE(sum("1") == 1);
 	REQUIRE(sum("1,") == 1);
 	REQUIRE(sum("102030000") == 102030000);
-	REQUIRE(sum("-1") == -1);
+	REQUIRE((sum("-1") == -1));
 	REQUIRE(sum("13") == 13);
 	REQUIRE(sum("45") == 45);
 	REQUIRE(sum("-2") == -2);
