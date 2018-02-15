@@ -33,6 +33,10 @@ TEST_CASE("sum function -- single integer"){
 	REQUIRE(sum("1") == 1);
 	REQUIRE(sum("1,") == 1);
 	REQUIRE(sum("102030000") == 102030000);
+	REQUIRE(sum("-1") == -1);
+	REQUIRE(sum("13") == 13);
+	REQUIRE(sum("45") == 45);
+	REQUIRE(sum("-2") == -2);
 
 }
 
