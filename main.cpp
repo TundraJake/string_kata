@@ -16,15 +16,28 @@ using std::getline;
 int sum(const string &muh_string){
 
 	istringstream iss(muh_string);
+	string token;
+	int temp = 0;
 	int sum = 0;
-	iss >> sum;
+	while(std::getline(iss, token,',')){
+		sum += stoi(token);
+	}
+
 	return sum;
 }
 
 
-TEST_CASE("add_string function -- single integer"){
+TEST_CASE("sum function -- single integer"){
+	
 	REQUIRE(sum("") == 0);
 	REQUIRE(sum("1") == 1);
+	REQUIRE(sum("1,") == 1);
 	REQUIRE(sum("102030000") == 102030000);
+
+}
+
+TEST_CASE("sum function -- N integers"){
 	REQUIRE(sum("1,2") == 3);
+	REQUIRE(sum("1,2,3") == 6);
+
 }
