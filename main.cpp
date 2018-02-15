@@ -13,13 +13,24 @@ using std::endl;
 using std::istringstream;
 using std::getline;
 
+char get_del(const string & str){
+
+	return ',';
+}
+
 int sum(const string &muh_string){
 
 	istringstream iss(muh_string);
 	string token;
 	int temp = 0;
 	int sum = 0;
-	while(std::getline(iss, token,',')){
+	char del = ',';
+
+	// Format //[del]\n
+
+	del = get_del(muh_string);
+
+	while(std::getline(iss, token, del)){
 
 		try {
 			sum += stoi(token);
@@ -67,6 +78,10 @@ TEST_CASE("sum function -- Newline testing"){
 
 }
 
+TEST_CASE("sum function -- Deliminator testing"){
 
+	REQUIRE(sum("//;\n1") == 1);
+
+}
 
 
