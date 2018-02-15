@@ -62,6 +62,8 @@ TEST_CASE("sum function -- Newline testing"){
 	REQUIRE(sum("1\n") == 1);
 	REQUIRE(sum("1\n,1") == 2);
 	REQUIRE(sum("1,\n") == 1);
+	REQUIRE(sum("1,\n\n\n\n\n\n1,1") == 3);
+	REQUIRE(sum("\n\n\n\n1,\n\n\n\n\n\n1,1\n\n\n\n\n") == 3);
 
 }
 
