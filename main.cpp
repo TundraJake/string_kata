@@ -50,3 +50,14 @@ TEST_CASE("sum function -- N integers"){
 
 
 }
+
+TEST_CASE("sum function -- Newline testing"){
+
+	REQUIRE(sum("1\n") == 1);
+	REQUIRE(sum("1\n,1") == 2);
+
+}
+
+
+
+
