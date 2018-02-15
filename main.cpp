@@ -95,6 +95,8 @@ TEST_CASE("sum function -- Deliminator testing"){
 
 	REQUIRE(sum("///\n1/2/3") == 6);
 	REQUIRE(sum("//.\n1.2.3") == 6);
+	// Don't use numbers please!
+	REQUIRE(!(sum("//2\n12223") == 10));
 
 
 }
