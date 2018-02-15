@@ -25,5 +25,6 @@ int sum(const string &muh_string){
 TEST_CASE("add_string function -- single integer"){
 	REQUIRE(sum("") == 0);
 	REQUIRE(sum("1") == 1);
-
+	REQUIRE(sum("102030000") == 102030000);
+	REQUIRE(sum("1,2") == 3);
 }
