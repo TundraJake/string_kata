@@ -91,6 +91,7 @@ TEST_CASE("sum function -- Deliminator testing"){
 
 	REQUIRE(sum("//;\n1;") == 1);
 	REQUIRE(sum("//;\n1;2;") == 3);
+	REQUIRE(sum("//;\n1;2;3") == 6);
 
 }
 
