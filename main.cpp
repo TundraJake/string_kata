@@ -13,6 +13,11 @@ using std::endl;
 using std::istringstream;
 using std::getline;
 
+int sum(const string &muh_string){
+
+	return 0;
+}
+
 
 TEST_CASE("add_string function -- single integer"){
 	REQUIRE(sum("") == 0);
