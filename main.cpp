@@ -43,5 +43,10 @@ TEST_CASE("sum function -- single integer"){
 TEST_CASE("sum function -- N integers"){
 	REQUIRE(sum("1,2") == 3);
 	REQUIRE(sum("1,2,3") == 6);
+	REQUIRE(sum("-1,-1,-1") == -3);
+	REQUIRE(sum("1,2,3,4") == 10);
+	REQUIRE(sum("87,1,7") == 95);
+	REQUIRE(sum("1,-7,3") == -3);
+
 
 }
