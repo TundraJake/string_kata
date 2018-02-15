@@ -20,7 +20,13 @@ int sum(const string &muh_string){
 	int temp = 0;
 	int sum = 0;
 	while(std::getline(iss, token,',')){
-		sum += stoi(token);
+
+		try {
+			sum += stoi(token);
+		}
+		catch (...){
+			sum += 0;
+		}
 	}
 
 	return sum;
@@ -55,6 +61,7 @@ TEST_CASE("sum function -- Newline testing"){
 
 	REQUIRE(sum("1\n") == 1);
 	REQUIRE(sum("1\n,1") == 2);
+	REQUIRE(sum("1,\n") == 1);
 
 }
 
