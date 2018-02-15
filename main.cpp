@@ -15,10 +15,15 @@ using std::getline;
 
 int sum(const string &muh_string){
 
-	return 0;
+	istringstream iss(muh_string);
+	int sum = 0;
+	iss >> sum;
+	return sum;
 }
 
 
 TEST_CASE("add_string function -- single integer"){
 	REQUIRE(sum("") == 0);
+	REQUIRE(sum("1") == 1);
+
 }
