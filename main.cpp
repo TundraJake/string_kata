@@ -1,6 +1,9 @@
 
 // Jacob McKenna
 // Paul Huskee
+
+// Github --> https://github.com/TundraJake/string_kata
+
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 #include <iostream>
