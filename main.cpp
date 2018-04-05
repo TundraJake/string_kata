@@ -14,6 +14,8 @@ using std::istringstream;
 using std::getline;
 using std::runtime_error;
 
+// function find_del
+// Returns the 2nd element in the character array as the delimiter.
 char find_del(const string & str){
 
 	if (str[0] == '/' && str[1] == '/'){
@@ -23,11 +25,15 @@ char find_del(const string & str){
 	return ',';
 }
 
+// function get_del
+// Returns the delimiter
 char get_del(const string & str){
 
 	return find_del(str);
 }
 
+// function sum
+// returns the sum of integers seperated some delimiter character.
 int sum(const string &muh_string){
 
 	istringstream iss(muh_string);
@@ -36,27 +42,24 @@ int sum(const string &muh_string){
 	int sum = 0;
 	char del;
 
-	// Format //[del]\n
-
+	// Get Delimiter
 	del = get_del(muh_string);
 
 	while(std::getline(iss, token, del)){
 
-		// if (temp < 0)
-		// 	throw runtime_error("Negative numbers are not allowed!");
-		// else{
-			try {
-
-				sum += stoi(token);
-			}
-			catch (...){
-				sum += 0;
-			}
-		// }
+		try {
+			sum += stoi(token);
+		}
+		catch (...){
+			sum += 0;
+		}
 	}
 	return sum;
 }
 
+/*
+	Test Driven Development Section
+*/
 
 TEST_CASE("sum function -- single integer"){
 	
